@@ -21,7 +21,7 @@
 (defn block [b]
   [:div {:class (str "block"  (valid? b))}
    [:div {:class "b-header"}
-    [:p 
+    [:p {:class "b-header-text"} 
      [:span {:class "b-header-span"} (get-in b [:block])]
      " Block Number"]
     ]
@@ -60,7 +60,7 @@
   (let [blocks (re-frame/subscribe [::subs/blocks])]
     [:div
      [:div {}
-       [:p (map block @blocks)]
+       [:div {:class "blocks"} (map block @blocks)]
       ]
     ]))
 
@@ -87,7 +87,9 @@
   [:div
      [:div {:class "container"}
       [:h2 {:class ""} "So what's a blockchain?"]
-      [:p "With this interactive site I'll guide you step by step towards a good undertanding of what a Blockchain is."]]
+      [:p {:class "p-explanation"} "When coming up with Bitcoin, Satoshi Nakamoto cleverly used the hash function, applying it to multiple values at the same time"]
+      [:p {:class "p-explanation"} "To \"chain \" two blocks he took the hash of a block and included it in the following one."]
+      [:p {:class "p-explanation"} "Try and figure out what's going on by playing around with the form below:"]]
      [:div {:class ""} 
       (blockchain-component)]])
 

@@ -275,6 +275,8 @@ h2 {
     h1 {
         font-size: 5em;
         margin-bottom: 0;
+        margin-left: 0.4em;
+        margin-top: 0.5em;
     }
     
     h2 {
@@ -289,4 +291,31 @@ h2 {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
     }
+
+    .block {
+        max-width: 95%;
+    }
+    .b-header-span{
+        font-size: 32px;
+    }
+    p.b-header-text{
+        font-size:36px;
+    }
+
+    .input-label{
+        font-size: 24px;
+    }
+
+    .input-field {
+        font-size: 32px;
+    }
+    .btn-primary {
+        font-size: 42px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .blocks {
+        padding-bottom: 4rem;
+    }
+    
 }
