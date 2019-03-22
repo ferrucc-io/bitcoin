@@ -258,3 +258,35 @@ h2 {
     opacity: 0.8;
     margin-top:0.5rem;
 }
+
+.p-explanation {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+@media only screen 
+  and (max-device-width: 812px)
+  and (orientation: portrait) { 
+    .p-explanation{
+        font-size: 18.5px;
+    }
+    
+    h1 {
+        font-size: 5em;
+        margin-bottom: 0;
+    }
+    
+    h2 {
+        font-size: 4em;
+    }
+    
+    h3{
+        font-size: 2em;
+    }
+
+    .topics {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}

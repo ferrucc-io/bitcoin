@@ -94,16 +94,19 @@
 (defn block-page []
   [:div {:class "container"}
    [:h2 "A hashing function"]
-   [:p "Here's a block:"]
+   [:p {:class "p-explanation"} "Here's a block:"]
    [block-component]
-   [:p "Try typing something inside of the Text field and see what happens"]])
+   [:p {:class "p-explanation"} "Try typing something inside of the Text field and see what happens"]
+   [:h2 "What's going on?"]
+   [:p {:class "p-explanation"} "A hashing function is a mathematical formula that transforms any text you give it, into a unique sequence of characters."]
+   [:p {:class "p-explanation"} "One particular property of these functions is that the unique sequences of characters are unpredictable. There's no regular pattern that matches the text we inout  with its corresponding output!"]])
 
 (defn home []
   [:div {:class "container"}
-   [:h2 "Welcome to an interactive Bitcoin lesson"]
-   [:h3 "Click on the topic you don't understand and you'll find an answer to your question"]
+   [:h2 "An Interactive Course on Bitcoin"]
+   [:h3 "Bitcoin is hard to understand, but this site is here to help you figure it out!"]
    [:div {:class "topics"}
-    (topic "img/block.png" "A Block" "" :block)
+    (topic "img/block.png" "A Block" "The first step" :block)
     (topic "img/blockchain.png" "Blockchain" "The core idea" :blockchain)]])
 
 (defmulti panels identity)
