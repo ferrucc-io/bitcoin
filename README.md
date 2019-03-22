@@ -1,6 +1,9 @@
-# blockchain
+# Re-Frame Blockchain
 
-A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
+In this repository you can find some of the code I've used to learn re-frame.
+
+The idea was to build a simplified version of blockchain, to play around with state and create something that's not a Todo list app.
+
 
 ## Development Mode
 
@@ -11,7 +14,9 @@ lein clean
 lein figwheel dev
 ```
 
-Figwheel will automatically push cljs changes to the browser.
+Figwheel will automatically push cljs changes to the browser. 
+
+Hot reloading
 
 Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
 
