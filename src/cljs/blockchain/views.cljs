@@ -1,7 +1,8 @@
 (ns blockchain.views
   (:require
    [re-frame.core :as re-frame]
-   [blockchain.subs :as subs]))
+   [blockchain.subs :as subs]
+   [blockchain.utils :refer [hash]]))
 
 
 (defn minable? [s b]
@@ -11,8 +12,13 @@
                  "Mine"]
               [:div]))
 
+(defn valid? [b]
+  (if (or (= (get-in b [:hash]) (hash (str (get-in b [:prev]) (get-in b [:data]) (get-in b [:nonce]))))(= (get-in b [:hash]) "0"))
+    ""
+    " invalid"))
+
 (defn block [b]
-  [:div {:class "block"}
+  [:div {:class (str "block"  (valid? b))}
    [:div {:class "b-header"}
     [:p 
      [:span {:class "b-header-span"} (get-in b [:block])]

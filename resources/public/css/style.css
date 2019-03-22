@@ -202,3 +202,10 @@ h1 {
     background: rgb(0, 101, 255);
 }
 
+.invalid .b-header {
+    background: red !important;
+}
+
+.invalid .b-header-span {
+    color: red;
+}
