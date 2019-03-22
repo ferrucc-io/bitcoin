@@ -222,3 +222,39 @@ h2 {
 .invalid .b-header-span {
     color: red;
 }
+
+.topics {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . .";
+}
+
+.topic {
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    border-radius: 3px;
+    margin: 0.3rem;
+}
+
+.topic-img {
+    display: block;
+    margin: 0 auto;
+}
+
+.topic-title{
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    color: #172B4D;
+}
+
+.topic-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #172B4D;
+    opacity: 0.8;
+    margin-top:0.5rem;
+}

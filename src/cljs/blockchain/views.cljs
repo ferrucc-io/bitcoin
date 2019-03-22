@@ -2,7 +2,8 @@
   (:require
    [re-frame.core :as re-frame]
    [blockchain.subs :as subs]
-   [blockchain.utils :refer [hash]]))
+   [blockchain.utils :refer [hash]]
+   [blockchain.components :refer [topic]]))
 
 
 (defn minable? [s b]
@@ -63,6 +64,25 @@
       ]
     ]))
 
+(defn block-component []
+  (let [block (re-frame/subscribe [::subs/block])]
+    [:div
+      [:div {:class "input-container"}
+       [:label {:class "input-label"} "Content"]
+       [:div {:class "input-field-container"}
+        [:input {:class "input-field disabled" 
+              :type "text" 
+              :value (get-in @block [:data]) 
+              :on-change #(re-frame/dispatch 
+                           [:single-b-change 
+                            (-> % .-target .-value)])}]]]
+     [:div {:class "input-container"}
+      [:label {:class "input-label label-disabled"} "Hash"]
+      [:div {:class "input-field-container disabled"}
+       [:input {:class "input-field disabled" 
+                :type "text" 
+                :value (get-in @block [:hash])}]]]]))
+
 (defn blockchain []
   [:div
      [:div {:class "container"}
@@ -71,23 +91,30 @@
      [:div {:class ""} 
       (blockchain-component)]])
 
+(defn block-page []
+  [:div {:class "container"}
+   [:h2 "A hashing function"]
+   [:p "Here's a block:"]
+   [block-component]
+   [:p "Try typing something inside of the Text field and see what happens"]])
+
 (defn home []
   [:div {:class "container"}
    [:h2 "Welcome to an interactive Bitcoin lesson"]
    [:h3 "Click on the topic you don't understand and you'll find an answer to your question"]
-   [:div {:class "grid"}
-    [:div {:class "topic"}
-     [:img {:src "img/block.png"}]
-     [:p "Blocks"]]]])
+   [:div {:class "topics"}
+    (topic "img/block.png" "A Block" "" :block)
+    (topic "img/blockchain.png" "Blockchain" "The core idea" :blockchain)]])
 
 (defmulti panels identity)
-
 (defmethod panels :home [] [home])
+(defmethod panels :block [] [block-page])
 (defmethod panels :blockchain [] [blockchain])
 
 (defn main-panel []
   (let [route (re-frame/subscribe [::subs/route])]
     [:div      
-     [:h1 {:class "title"}
+     [:h1 {:class "title" 
+           :on-click #(re-frame/dispatch [:change-route :home])}
       "Bitcoin"]
      (panels @route)]))

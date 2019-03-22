@@ -4,6 +4,7 @@
    [blockchain.db :as db]
    [blockchain.subs :as subs]
    [clojure.string]
+   [blockchain.utils :refer [hash]]
    [reagent.crypt :as crypt]))
 
 (defn mine-it [d]
@@ -19,7 +20,7 @@
         b (second b-container)
         latest-block (last @blocks)
         nonce (mine-it (str (get-in latest-block [:prev]) (get-in latest-block [:data])))
-        prev-block (assoc latest-block :hash (crypt/bytes->hex (crypt/hash (str (get-in latest-block [:prev]) (get-in latest-block [:data]) nonce) :sha256)) :nonce nonce)
+        prev-block (assoc latest-block :hash (hash  (str (get-in latest-block [:prev]) (get-in latest-block [:data]) nonce)) :nonce nonce)
         new-block {:nonce (str (get-in b [:nonce]))
                    :block (str (+  (int (get-in b [:block])) 1))
                    :prev (str (get-in prev-block [:hash]))
@@ -29,7 +30,7 @@
 
 
 (defn route [db r]
-  (assoc db :route @r))
+  (assoc db :route (last r)))
 
 (re-frame/reg-event-db
  ::initialize-db
@@ -39,6 +40,12 @@
 (re-frame/reg-event-db
  :change-route
   route)
+
+
+(re-frame/reg-event-db
+ :single-b-change
+  (fn [db [_ value]]
+    (assoc db :block {:data value :hash (hash value)})))
 
 (re-frame/reg-event-db
  :add-block
