@@ -28,10 +28,17 @@
     (assoc db :blocks (conj (pop @blocks) prev-block new-block))))
 
 
+(defn route [db r]
+  (assoc db :route @r))
+
 (re-frame/reg-event-db
  ::initialize-db
  (fn [_ _]
    db/default-db))
+
+(re-frame/reg-event-db
+ :change-route
+  route)
 
 (re-frame/reg-event-db
  :add-block

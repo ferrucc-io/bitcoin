@@ -13,7 +13,7 @@
               [:div]))
 
 (defn valid? [b]
-  (if (or (= (get-in b [:hash]) (hash (str (get-in b [:prev]) (get-in b [:data]) (get-in b [:nonce]))))(= (get-in b [:hash]) "0"))
+  (if (or (= (get-in b [:hash]) (hash (str (get-in b [:prev]) (get-in b [:data]) (get-in b [:nonce])))) (= (get-in b [:hash]) "0"))
     ""
     " invalid"))
 
@@ -24,7 +24,7 @@
      [:span {:class "b-header-span"} (get-in b [:block])]
      " Block Number"]
     ]
-    [:div {:class "input-container"}
+   [:div {:class "input-container"}
      [:label {:class "input-label label-disabled"} "Previous Block"]
      [:div {:class "input-field-container disabled"}
       [:input {:class "input-field disabled" 
@@ -40,13 +40,13 @@
                            [:b-content-change 
                             (-> % .-target .-value) 
                             (get-in b [:block])])}]]]
-    [:div {:class "input-container"}
+   [:div {:class "input-container"}
      [:label {:class "input-label label-disabled"} "Nonce"]
      [:div {:class "input-field-container disabled"}
       [:input {:class "input-field disabled" 
                :type "text" 
                :value (get-in b [:nonce])}]]]
-    [:div {:class "input-container"}
+   [:div {:class "input-container"}
      [:label {:class "input-label label-disabled"} "Hash"]
      [:div {:class "input-field-container disabled"}
       [:input {:class "input-field disabled" 
@@ -55,7 +55,7 @@
    (minable? (str (get-in b [:hash])) b)]
   )
 
-(defn blockchain []
+(defn blockchain-component []
   (let [blocks (re-frame/subscribe [::subs/blocks])]
     [:div
      [:div {}
@@ -63,12 +63,31 @@
       ]
     ]))
 
-(defn main-panel []
+(defn blockchain []
   [:div
-     [:h1 {:class "title"}
-      "Blockchain"]
+     [:div {:class "container"}
+      [:h2 {:class ""} "So what's a blockchain?"]
+      [:p "With this interactive site I'll guide you step by step towards a good undertanding of what a Blockchain is."]]
      [:div {:class ""} 
-       (blockchain)]
-  ])
+      (blockchain-component)]])
 
+(defn home []
+  [:div {:class "container"}
+   [:h2 "Welcome to an interactive Bitcoin lesson"]
+   [:h3 "Click on the topic you don't understand and you'll find an answer to your question"]
+   [:div {:class "grid"}
+    [:div {:class "topic"}
+     [:img {:src "img/block.png"}]
+     [:p "Blocks"]]]])
 
+(defmulti panels identity)
+
+(defmethod panels :home [] [home])
+(defmethod panels :blockchain [] [blockchain])
+
+(defn main-panel []
+  (let [route (re-frame/subscribe [::subs/route])]
+    [:div      
+     [:h1 {:class "title"}
+      "Bitcoin"]
+     (panels @route)]))

@@ -6,3 +6,8 @@
  ::blocks
  (fn [db]
    (:blocks db)))
+
+(re-frame/reg-sub
+ ::route
+ (fn [db]
+   (:route db)))
