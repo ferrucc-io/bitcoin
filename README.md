@@ -2,7 +2,7 @@
 
 In this repository you can find some of the code I've used to learn re-frame.
 
-The idea was to build a simplified version of blockchain, to play around with state and create something that's not a Todo list app.
+The idea was to build a simplified version of a blockchain, to play around with state and create something that's not a Todo list app.
 
 
 ## Development Mode
