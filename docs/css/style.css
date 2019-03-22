@@ -1,0 +1,321 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: rgb(244, 245, 247);
+
+}
+
+h1 {
+    font-size: 2em;
+    font-style: inherit;
+    line-height: 1.1;
+    color: #172B4D;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-top: 40px;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 1.7142857142857142em;
+    font-style: inherit;
+    line-height: 1.1666666666666667;
+    color: #172B4D;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.container {
+    padding: 2em;
+}
+
+.block {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    border-radius: 3px;
+    margin: 8px;
+    margin:8px auto;
+    padding: 0px;
+    padding-bottom: 0.2em;
+    max-width: 450px;
+}
+
+.b-header{
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    max-width: 300px;
+    background: rgb(0, 82, 204);
+    border-radius: 3px 3px 0px 0px;
+    padding: 0.6em 1em;
+    max-width: 100%;
+}
+
+.b-header-span {
+    background-color: rgb(255, 255, 255);
+    color: rgb(7, 71, 166);
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
+    min-width: 1px;
+    text-align: center;
+    border-radius: 2em;
+    padding: 0.166667em 0.5em;
+}
+
+.b-content {
+    padding: 0.6em 1em;
+    font-size: 14px;
+}
+
+.input-container {
+    padding: 0.6em 1em;
+}
+
+.input-label{
+    color: rgb(107, 119, 140);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.33333;
+    padding: 20px 0px 4px;
+}
+
+.input-field-container{
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(250, 251, 252);
+    box-sizing: border-box;
+    color: rgb(9, 30, 66);
+    display: flex;
+    font-size: 14px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    line-height: 1.42857;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    border-color: rgb(223, 225, 230);
+    border-radius: 3px;
+    border-style: solid;
+    flex: 1 0 auto;
+    overflow: hidden;
+    transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+    border-width: 2px;
+    padding: 6px;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: rgb(244, 245, 247);
+    color: rgb(179, 186, 197);
+}
+
+.label-disabled {
+    color: rgb(179, 186, 197);
+}
+
+:hover.input-field-container {
+    background-color: rgb(235, 236, 240);
+}
+
+.input-field{
+    box-sizing: border-box;
+    color: inherit;
+    cursor: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    min-width: 0px;
+    width: 100%;
+    background: transparent;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    outline: none;
+}
+
+.btn-primary{
+    cursor: pointer;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    box-sizing: border-box;
+    cursor: default;
+    display: block;
+    font-size: inherit;
+    font-style: normal;
+    height: 2.28571em;
+    line-height: 2.28571em;
+    max-width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+    color: rgb(255, 255, 255) !important;
+    background: rgb(0, 82, 204);
+    border-radius: 3px;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px 8px;
+    text-decoration: none;
+    transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+    outline: none !important;
+    margin: 1em auto;
+}
+
+:hover.btn-primary{
+    background: rgb(0, 101, 255);
+}
+
+.invalid .b-header {
+    background: red !important;
+}
+
+.invalid .b-header-span {
+    color: red;
+}
+
+.topics {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . .";
+}
+
+.topic {
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    border-radius: 3px;
+    margin: 0.3rem;
+}
+
+.topic-img {
+    display: block;
+    margin: 0 auto;
+}
+
+.topic-title{
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    color: #172B4D;
+}
+
+.topic-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #172B4D;
+    opacity: 0.8;
+    margin-top:0.5rem;
+}
+
+.p-explanation {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+@media only screen 
+  and (max-device-width: 812px)
+  and (orientation: portrait) { 
+    .p-explanation{
+        font-size: 18.5px;
+    }
+    
+    h1 {
+        font-size: 5em;
+        margin-bottom: 0;
+        margin-left: 0.4em;
+        margin-top: 0.5em;
+    }
+    
+    h2 {
+        font-size: 4em;
+    }
+    
+    h3{
+        font-size: 2em;
+    }
+
+    .topics {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .block {
+        max-width: 95%;
+    }
+    .b-header-span{
+        font-size: 32px;
+    }
+    p.b-header-text{
+        font-size:36px;
+    }
+
+    .input-label{
+        font-size: 24px;
+    }
+
+    .input-field {
+        font-size: 32px;
+    }
+    .btn-primary {
+        font-size: 42px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .blocks {
+        padding-bottom: 4rem;
+    }
+    
+}
