@@ -105,8 +105,8 @@
 
 (defn home []
   [:div {:class "container"}
-   [:h2 "An Interactive Course on Bitcoin"]
-   [:h3 "Bitcoin is hard to understand, but this site is here to help you figure it out!"]
+   [:h2 "Bitcoin Playground"]
+   [:h3 "Bitcoin is hard to understand! So in this site I made a couple of interactive examples to explain some core concepts behind the first and most reliable digital currency."]
    [:div {:class "topics"}
     (topic "img/block.png" "A Block" "The first step" :block)
     (topic "img/blockchain.png" "Blockchain" "The core idea" :blockchain)]])
